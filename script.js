@@ -17,8 +17,15 @@ $('#submit').click(
 function ctrlq(e) {
     $('#table').html('');
     
-    for(var i in e.result){
-        var obj = e.result[i];
-        $('#table').append(`<tr><td>${obj.date}</td><td>${obj.description}</td><td>${obj.budget}</td><td>${obj.amount}</td><td>${obj.paid}</td></tr>`);
+    console.log(e.result);
+    console.log(e.result[0]);
+
+    if (e.result[0].date === "#N/A") {
+        $('#results').html('No expenses recorded this month');
+    } else {
+        for (var i in e.result) {
+            var obj = e.result[i];
+            $('#table').append(`<tr><td>${obj.date}</td><td>${obj.description}</td><td>${obj.budget}</td><td>${obj.amount}</td><td>${obj.paid}</td></tr>`);
+        }
     }
 }
