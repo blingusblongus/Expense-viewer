@@ -1,5 +1,6 @@
 $('#submit').click(
     function callGoogleScript() {
+        $('#working').html('fetching data...');
 
         var url = "https://script.google.com/macros/s/AKfycbwHgYtQkeRsqOYKcmWXjojmxortf4p7Rmc9a4549IHh/dev?callback=ctrlq&name=";
         var name = $('#name').val();
@@ -16,8 +17,8 @@ $('#submit').click(
 // print the returned data
 function ctrlq(e) {
     $('#table').html('');
+    $('#working').html('');
     
-    console.log(e.result);
     console.log(e.result[0]);
 
     if (e.result[0].date === "#N/A") {
